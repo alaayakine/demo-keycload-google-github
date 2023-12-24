@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="template">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.2/css/bootstrap.min.css">
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="card">
+        <div class="card-body">
+            <div class="ps-3">
+
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item active" th:each="url:${urls}">
+                    <div class="d-grid">
+                        <a class="btn btn-outline-info-info" th:text="${url.key}" th:href="${url.value}"></a>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+
+
+
+</div>
+</body>
+</html>

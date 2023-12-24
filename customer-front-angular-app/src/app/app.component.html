@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/customers">Customer</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/products" *ngIf="keyclock.getUserRoles().includes('ADMIN')">Product</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0)">Link</a>
+        </li>
+      </ul>
+      <ul class="navbar">
+        <div class="dropdown">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+
+             aria-expanded="false">
+            <span *ngIf="profile; else not_logged_in">{{profile.firstName}} | {{keyclock.getUserRoles()}}</span>
+
+           <!-- <span *ngIf="!sec.profile"><strong >...</strong></span>
+
+-->
+            <ng-template #not_logged_in>
+                not logged
+            </ng-template>
+          </a>
+
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li>
+              <form  >
+                <button type="submit" (click)="logout()">Logout</button>
+              </form>
+            </li>
+            <li><a class="dropdown-item" (click)="login()">Login</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </div>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>
